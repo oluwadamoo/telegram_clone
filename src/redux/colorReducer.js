@@ -1,0 +1,83 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+export const colorSlice = createSlice({
+  name: "theme",
+  initialState: {
+    type: "default",
+    backgroundColor: "#FFFFFF",
+    textBlue: "#007AFF",
+    textDark: "#000000",
+    toggleGreen: "#77D572",
+    muteColor: "#F09A37",
+    deleteColor: "#FE3B30",
+    archiveColor: "#BBBBC3",
+    unreadBlue: "#007EE5",
+    pinGreen: "#00C900",
+    gray: "#AEAEB2",
+    searchGray: "#3C3C4325",
+    myChatBox: "#E1FEC6",
+    readColor: "#21C004",
+    friendChatBox: "#FFFFFF",
+    chatImageName: "#3EAA3C",
+    friendTimeGray: "#8E8E93",
+    chatTextboxPlaceholder: "#AEAEB2",
+    chatTextbox: "#FFFFFF",
+    chatTextboxBorder: "#D1D1D6",
+    headerColor: "#F6F6F6",
+    textGreen: "#00B12C",
+    settingBackground: "#F2F2F2",
+  },
+  reducers: {
+    darkMode: (state) => {
+      (state.type = "dark"),
+        (state.backgroundColor = "#000000"),
+        (state.textBlue = "#FFFFFF"),
+        (state.textDark = "#FFFFFF"),
+        (state.toggleGreen = "#77D572"),
+        (state.muteColor = "#F09A37"),
+        (state.deleteColor = "#FE3B30"),
+        (state.archiveColor = "#BBBBC3"),
+        (state.unreadBlue = "#666666"),
+        (state.pinGreen = "#00C900"),
+        (state.gray = "#AEAEB2"),
+        (state.myChatBox = "#8E8E93"),
+        (state.readColor = "#8E8E93"),
+        (state.friendChatBox = "#262628"),
+        (state.chatImageName = "#FFFFFF"),
+        (state.friendTimeGray = "#8E8E93"),
+        (state.chatTextboxPlaceholder = "#636366"),
+        (state.chatTextbox = "#060606"),
+        (state.chatTextboxBorder = "#3A3A3C"),
+        (state.headerColor = "#1C1C1D"),
+        (state.textGreen = "#00B12C");
+      state.searchGray = "#000000";
+      state.settingBackground = "#000000";
+    },
+    lightMode: (state) => {
+      (state.type = "default"),
+        (state.backgroundColor = "#FFFFFF"),
+        (state.textBlue = "#007AFF"),
+        (state.textDark = "#000000"),
+        (state.toggleGreen = "#77D572"),
+        (state.muteColor = "#F09A37"),
+        (state.deleteColor = "#FE3B30"),
+        (state.archiveColor = "#BBBBC3"),
+        (state.unreadBlue = "#007EE5"),
+        (state.pinGreen = "#00C900"),
+        (state.gray = "#AEAEB2"),
+        (state.searchGray = "#3C3C4325"),
+        (state.settingBackground = "#F2F2F2"((state.myChatBox = "#E1FEC6"))),
+        (state.readColor = "#21C004"),
+        (state.friendChatBox = "#B5CADD"),
+        (state.friendTimeGray = "#8E8E93"),
+        (state.chatTextboxPlaceholder = "#AEAEB2"),
+        (state.chatTextbox = "#FFFFFF"),
+        (state.chatTextboxBorder = "#D1D1D6"),
+        (state.headerColor = "#F6F6F6"),
+        (state.textGreen = "#00B12C");
+    },
+  },
+});
+
+export const { darkMode, lightMode } = colorSlice.actions;
+export default colorSlice.reducer;
