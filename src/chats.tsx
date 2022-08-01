@@ -87,28 +87,14 @@ export default function Chats({ navigation }: any) {
     <View
       style={[styles.container, { backgroundColor: theme.backgroundColor }]}
     >
-      {/* <View style={styles.header}>
-        <TouchableOpacity>
-          <Text style={[styles.edit, { color: theme.textBlue }]}>Edit</Text>
-        </TouchableOpacity>
-        <Text style={[styles.header_text, { color: theme.textDark }]}>
-          Chats
-        </Text>
-        <TouchableOpacity>
-          <Image
-            source={require("../assets/edit_icon.png")}
-            style={styles.icon}
-          />
-        </TouchableOpacity>
-      </View> */}
-
       <Header
         leftText={"Edit"}
+        background={true}
         midText="Chats"
         rightIcon={require("../assets/edit_icon.png")}
       />
 
-      <View style={styles.wrapper}>
+      <View style={[styles.wrapper, { backgroundColor: theme.headerColor }]}>
         <View style={[styles.search, { backgroundColor: theme.searchGray }]}>
           <Image
             source={require("../assets/search_icon.png")}
@@ -144,6 +130,24 @@ export default function Chats({ navigation }: any) {
               </>
             );
           }}
+          ItemSeparatorComponent={
+            theme.type == "dark"
+              ? () => (
+                  <View style={{ flexDirection: "row", alignItems: "center" }}>
+                    <View
+                      style={{
+                        width: "100%",
+                        height: 0.7,
+                        marginLeft: 50,
+                        marginVertical: 5,
+                        backgroundColor:
+                          theme.type == "default" ? "#D8D8D8" : "#5f5f5f",
+                      }}
+                    />
+                  </View>
+                )
+              : () => null
+          }
           renderHiddenItem={renderHiddenItem}
           leftOpenValue={75 + 75}
           rightOpenValue={-220}
@@ -176,6 +180,7 @@ const styles = StyleSheet.create({
   icon: {},
   wrapper: {
     paddingHorizontal: 15,
+    paddingBottom: 5,
   },
   search: {
     flexDirection: "row",

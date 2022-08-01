@@ -16,7 +16,13 @@ import { stickers } from "./data/stickers";
 
 export default function DataAndStorageSettings({ navigation }: any) {
   const [isEnabled, setIsEnabled] = useState(false);
+  const [isPhotoEnabled, setIsPhotoEnabled] = useState(false);
+  const [videoIsEnabled, setVideoIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const togglePhotoSwitch = () =>
+    setIsPhotoEnabled((previousState) => !previousState);
+  const toggleVideoSwitch = () =>
+    setVideoIsEnabled((previousState) => !previousState);
 
   const theme = useSelector((state: any) => state.theme);
 
@@ -42,7 +48,7 @@ export default function DataAndStorageSettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 30,
             },
           ]}
@@ -53,7 +59,10 @@ export default function DataAndStorageSettings({ navigation }: any) {
                 Storage Usage
               </Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -69,43 +78,19 @@ export default function DataAndStorageSettings({ navigation }: any) {
                 Network Usage
               </Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
-          {/* <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              marginTop: 20,
-            }}
-          >
-            <View style={[styles.user, styles.activities]}>
-              <Text style={[styles.name, { color: theme.textDark }]}>
-                Loop Animated Stickers
-              </Text>
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <View
-                  style={[
-                    styles.toggle,
-                    { backgroundColor: isEnabled ? "#77d572" : "#767577" },
-                  ]}
-                >
-                  <Switch
-                    trackColor={{ false: "#767577", true: "#77d572" }}
-                    thumbColor={isEnabled ? "#fff" : "#f4f3f4"}
-                    ios_backgroundColor="#3e3e3e"
-                    onValueChange={toggleSwitch}
-                    value={isEnabled}
-                  />
-                </View>
-              </View>
-            </View>
-          </View> */}
         </View>
 
         <View style={{ paddingHorizontal: 15, paddingTop: 5, marginTop: 30 }}>
-          <Text style={{ color: theme.gray }}>AUTOMATIC MEDIA DOWNLOAD</Text>
+          <Text style={{ color: theme.gray, fontSize: 13 }}>
+            AUTOMATIC MEDIA DOWNLOAD
+          </Text>
         </View>
 
         <View
@@ -114,7 +99,7 @@ export default function DataAndStorageSettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 10,
             },
           ]}
@@ -130,7 +115,10 @@ export default function DataAndStorageSettings({ navigation }: any) {
                 </Text>
               </View>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -151,7 +139,10 @@ export default function DataAndStorageSettings({ navigation }: any) {
                 </Text>
               </View>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -173,7 +164,9 @@ export default function DataAndStorageSettings({ navigation }: any) {
 
         {/* Autoplay media */}
         <View style={{ paddingHorizontal: 15, paddingTop: 5, marginTop: 30 }}>
-          <Text style={{ color: theme.gray }}>AUTO-PLAY MEDIA</Text>
+          <Text style={{ color: theme.gray, fontSize: 13 }}>
+            AUTO-PLAY MEDIA
+          </Text>
         </View>
 
         {/* Chat settings */}
@@ -183,7 +176,7 @@ export default function DataAndStorageSettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 10,
             },
           ]}
@@ -201,16 +194,18 @@ export default function DataAndStorageSettings({ navigation }: any) {
                   style={[
                     styles.toggle,
                     {
-                      backgroundColor: isEnabled ? "#77d572" : "#fff",
-                      borderWidth: 2,
-                      borderColor: "#e6e6e6",
+                      backgroundColor: isEnabled ? "#77d572" : "transparent",
+                      borderWidth: 1,
+                      borderColor: "#adadad",
                     },
                   ]}
                 >
                   <Switch
-                    trackColor={{ false: "#ffff", true: "#77d572" }}
+                    trackColor={{
+                      false: theme.type == "default" ? "#ffff" : "transparent",
+                      true: "#77d572",
+                    }}
                     thumbColor={isEnabled ? "#fff" : "#fff"}
-                    ios_backgroundColor="#3e3e3e"
                     onValueChange={toggleSwitch}
                     value={isEnabled}
                   />
@@ -234,18 +229,23 @@ export default function DataAndStorageSettings({ navigation }: any) {
                   style={[
                     styles.toggle,
                     {
-                      backgroundColor: isEnabled ? "#77d572" : "#fff",
-                      borderWidth: 2,
-                      borderColor: "#e6e6e6",
+                      backgroundColor: videoIsEnabled
+                        ? "#77d572"
+                        : "transparent",
+                      borderWidth: 1,
+                      borderColor: "#adadad",
                     },
                   ]}
                 >
                   <Switch
-                    trackColor={{ false: "#ffff", true: "#77d572" }}
-                    thumbColor={isEnabled ? "#fff" : "#fff"}
+                    trackColor={{
+                      false: theme.type == "default" ? "#ffff" : "transparent",
+                      true: "#77d572",
+                    }}
+                    thumbColor={videoIsEnabled ? "#fff" : "#f4f3f4"}
                     ios_backgroundColor="#3e3e3e"
-                    onValueChange={toggleSwitch}
-                    value={isEnabled}
+                    onValueChange={toggleVideoSwitch}
+                    value={videoIsEnabled}
                   />
                 </View>
               </View>
@@ -254,7 +254,7 @@ export default function DataAndStorageSettings({ navigation }: any) {
         </View>
 
         <View style={{ paddingHorizontal: 15, paddingTop: 5, marginTop: 30 }}>
-          <Text style={{ color: theme.gray }}>VOICE CALLS</Text>
+          <Text style={{ color: theme.gray, fontSize: 13 }}>VOICE CALLS</Text>
         </View>
 
         <View
@@ -263,7 +263,7 @@ export default function DataAndStorageSettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 10,
             },
           ]}
@@ -279,14 +279,17 @@ export default function DataAndStorageSettings({ navigation }: any) {
                 <Text style={{ color: theme.gray, marginRight: 10 }}>
                   Never
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
         </View>
 
         <View style={{ paddingHorizontal: 15, paddingTop: 5, marginTop: 30 }}>
-          <Text style={{ color: theme.gray }}>OTHER</Text>
+          <Text style={{ color: theme.gray, fontSize: 13 }}>OTHER</Text>
         </View>
 
         <View
@@ -295,7 +298,7 @@ export default function DataAndStorageSettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 10,
               marginBottom: 30,
             },
@@ -309,7 +312,10 @@ export default function DataAndStorageSettings({ navigation }: any) {
                 </Text>
               </View>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -329,18 +335,22 @@ export default function DataAndStorageSettings({ navigation }: any) {
                   style={[
                     styles.toggle,
                     {
-                      backgroundColor: isEnabled ? "#77d572" : "#fff",
+                      backgroundColor: isPhotoEnabled
+                        ? "#77d572"
+                        : "transparent",
                       borderWidth: 2,
-                      borderColor: "#e6e6e6",
+                      borderColor: "#adadad",
                     },
                   ]}
                 >
                   <Switch
-                    trackColor={{ false: "#ffff", true: "#77d572" }}
-                    thumbColor={isEnabled ? "#fff" : "#fff"}
-                    ios_backgroundColor="#3e3e3e"
-                    onValueChange={toggleSwitch}
-                    value={isEnabled}
+                    trackColor={{
+                      false: theme.type == "default" ? "#ffff" : "transparent",
+                      true: "#77d572",
+                    }}
+                    thumbColor={isPhotoEnabled ? "#fff" : "#fff"}
+                    onValueChange={togglePhotoSwitch}
+                    value={isPhotoEnabled}
                   />
                 </View>
               </View>

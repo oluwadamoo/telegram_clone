@@ -123,8 +123,13 @@ export default function UserInfo({ navigation, route }: any) {
             ]}
             activeOpacity={0.6}
           >
-            <Text style={styles.number}>Shared Media</Text>
-            <Image source={require("../assets/arrow_right.png")} />
+            <Text style={[styles.number, { color: theme.textDark }]}>
+              Shared Media
+            </Text>
+            <Image
+              source={require("../assets/arrow_right.png")}
+              style={{ tintColor: theme.gray }}
+            />
           </TouchableOpacity>
           <TouchableOpacity
             style={[
@@ -137,12 +142,17 @@ export default function UserInfo({ navigation, route }: any) {
             ]}
             activeOpacity={0.6}
           >
-            <Text style={styles.number}>Notifications</Text>
+            <Text style={[styles.number, { color: theme.textDark }]}>
+              Notifications
+            </Text>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Text style={{ color: theme.gray, marginRight: 10 }}>
                 Enabled
               </Text>
-              <Image source={require("../assets/arrow_right.png")} />
+              <Image
+                source={require("../assets/arrow_right.png")}
+                style={{ tintColor: theme.gray }}
+              />
             </View>
           </TouchableOpacity>
           <TouchableOpacity
@@ -156,10 +166,15 @@ export default function UserInfo({ navigation, route }: any) {
             ]}
             activeOpacity={0.6}
           >
-            <Text style={styles.number}>Groups In Common</Text>
+            <Text style={[styles.number, { color: theme.textDark }]}>
+              Groups In Common
+            </Text>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Text style={{ color: theme.gray, marginRight: 10 }}>1</Text>
-              <Image source={require("../assets/arrow_right.png")} />
+              <Image
+                source={require("../assets/arrow_right.png")}
+                style={{ tintColor: theme.gray }}
+              />
             </View>
           </TouchableOpacity>
           <TouchableOpacity

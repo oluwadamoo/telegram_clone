@@ -13,7 +13,7 @@ export const colorSlice = createSlice({
     archiveColor: "#BBBBC3",
     unreadBlue: "#007EE5",
     pinGreen: "#00C900",
-    gray: "#AEAEB2",
+    gray: "#8c8c8c",
     searchGray: "#3C3C4325",
     myChatBox: "#E1FEC6",
     readColor: "#21C004",
@@ -26,6 +26,7 @@ export const colorSlice = createSlice({
     headerColor: "#F6F6F6",
     textGreen: "#00B12C",
     settingBackground: "#F2F2F2",
+    settingSectionBackground: "#FFFFFF",
   },
   reducers: {
     darkMode: (state) => {
@@ -40,7 +41,7 @@ export const colorSlice = createSlice({
         (state.unreadBlue = "#666666"),
         (state.pinGreen = "#00C900"),
         (state.gray = "#AEAEB2"),
-        (state.myChatBox = "#8E8E93"),
+        (state.myChatBox = "#313131"),
         (state.readColor = "#8E8E93"),
         (state.friendChatBox = "#262628"),
         (state.chatImageName = "#FFFFFF"),
@@ -52,9 +53,11 @@ export const colorSlice = createSlice({
         (state.textGreen = "#00B12C");
       state.searchGray = "#000000";
       state.settingBackground = "#000000";
+      state.settingSectionBackground = "#1C1C1D";
     },
     lightMode: (state) => {
       (state.type = "default"),
+        (state.settingSectionBackground = "#FFFFFF"),
         (state.backgroundColor = "#FFFFFF"),
         (state.textBlue = "#007AFF"),
         (state.textDark = "#000000"),
@@ -64,11 +67,12 @@ export const colorSlice = createSlice({
         (state.archiveColor = "#BBBBC3"),
         (state.unreadBlue = "#007EE5"),
         (state.pinGreen = "#00C900"),
-        (state.gray = "#AEAEB2"),
+        (state.gray = "#8c8c8c"),
         (state.searchGray = "#3C3C4325"),
-        (state.settingBackground = "#F2F2F2"((state.myChatBox = "#E1FEC6"))),
+        (state.settingBackground = "#F2F2F2"),
+        (state.myChatBox = "#E1FEC6"),
         (state.readColor = "#21C004"),
-        (state.friendChatBox = "#B5CADD"),
+        (state.friendChatBox = "#FFFFFF"),
         (state.friendTimeGray = "#8E8E93"),
         (state.chatTextboxPlaceholder = "#AEAEB2"),
         (state.chatTextbox = "#FFFFFF"),

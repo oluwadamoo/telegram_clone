@@ -19,7 +19,12 @@ export default function Settings({ navigation }: any) {
       style={[styles.container, { backgroundColor: theme.settingBackground }]}
     >
       {/* Header.... */}
-      <Header midText="Settings" rightText="Edit" background={true} />
+      <Header
+        midText="Settings"
+        rightText="Edit"
+        background={true}
+        rightAction={() => navigation.push("Edit Profile")}
+      />
       <View style={[styles.wrapper, { backgroundColor: theme.headerColor }]}>
         <View style={[styles.search, { backgroundColor: theme.searchGray }]}>
           <Image
@@ -39,7 +44,15 @@ export default function Settings({ navigation }: any) {
         <TouchableOpacity
           activeOpacity={0.6}
           onPress={() => navigation.push("Edit Profile")}
-          style={[styles.user_acct, { backgroundColor: theme.backgroundColor }]}
+          style={[
+            styles.user_acct,
+            {
+              backgroundColor:
+                theme.type == "default"
+                  ? theme.backgroundColor
+                  : theme.headerColor,
+            },
+          ]}
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Image
@@ -60,7 +73,10 @@ export default function Settings({ navigation }: any) {
               </Text>
             </View>
           </View>
-          <Image source={require("../assets/arrow_right.png")} />
+          <Image
+            source={require("../assets/arrow_right.png")}
+            style={{ tintColor: theme.gray }}
+          />
         </TouchableOpacity>
 
         {/* ACcount... */}
@@ -70,7 +86,10 @@ export default function Settings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor:
+                theme.type == "default"
+                  ? theme.backgroundColor
+                  : theme.headerColor,
               marginTop: 40,
             },
           ]}
@@ -91,18 +110,12 @@ export default function Settings({ navigation }: any) {
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View
               style={{
-                width: 50,
-                height: 1,
-                marginVertical: 5,
-                backgroundColor: theme.backgroundColor,
-              }}
-            />
-            <View
-              style={{
                 width: "100%",
-                height: 1,
+                height: 0.7,
+                marginLeft: 50,
                 marginVertical: 5,
-                backgroundColor: "#D8D8D8",
+                backgroundColor:
+                  theme.type == "default" ? "#D8D8D8" : "#5f5f5f",
               }}
             />
           </View>
@@ -139,7 +152,10 @@ export default function Settings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor:
+                theme.type == "default"
+                  ? theme.backgroundColor
+                  : theme.headerColor,
               marginTop: 40,
             },
           ]}
@@ -153,24 +169,21 @@ export default function Settings({ navigation }: any) {
               <Text style={[styles.name, { color: theme.textDark }]}>
                 Saved Messages
               </Text>
-              <Image source={require("../assets/arrow_right.png")} />
+              <Image
+                source={require("../assets/arrow_right.png")}
+                style={{ tintColor: theme.gray }}
+              />
             </View>
           </View>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View
               style={{
-                width: 50,
-                height: 1,
-                marginVertical: 5,
-                backgroundColor: theme.backgroundColor,
-              }}
-            />
-            <View
-              style={{
                 width: "100%",
-                height: 1,
+                height: 0.7,
+                marginLeft: 50,
                 marginVertical: 5,
-                backgroundColor: "#D8D8D8",
+                backgroundColor:
+                  theme.type == "default" ? "#D8D8D8" : "#5f5f5f",
               }}
             />
           </View>
@@ -184,24 +197,21 @@ export default function Settings({ navigation }: any) {
               <Text style={[styles.name, { color: theme.textDark }]}>
                 Recent Calls
               </Text>
-              <Image source={require("../assets/arrow_right.png")} />
+              <Image
+                source={require("../assets/arrow_right.png")}
+                style={{ tintColor: theme.gray }}
+              />
             </View>
           </View>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View
               style={{
-                width: 50,
-                height: 1,
-                marginVertical: 5,
-                backgroundColor: theme.backgroundColor,
-              }}
-            />
-            <View
-              style={{
                 width: "100%",
-                height: 1,
+                height: 0.7,
+                marginLeft: 50,
                 marginVertical: 5,
-                backgroundColor: "#D8D8D8",
+                backgroundColor:
+                  theme.type == "default" ? "#D8D8D8" : "#5f5f5f",
               }}
             />
           </View>
@@ -219,7 +229,10 @@ export default function Settings({ navigation }: any) {
               <Text style={[styles.name, { color: theme.textDark }]}>
                 Stickers
               </Text>
-              <Image source={require("../assets/arrow_right.png")} />
+              <Image
+                source={require("../assets/arrow_right.png")}
+                style={{ tintColor: theme.gray }}
+              />
             </View>
           </TouchableOpacity>
         </View>
@@ -231,7 +244,10 @@ export default function Settings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor:
+                theme.type == "default"
+                  ? theme.backgroundColor
+                  : theme.headerColor,
               marginTop: 40,
               marginBottom: 20,
             },
@@ -250,7 +266,10 @@ export default function Settings({ navigation }: any) {
               <Text style={[styles.name, { color: theme.textDark }]}>
                 Notifications and Sounds
               </Text>
-              <Image source={require("../assets/arrow_right.png")} />
+              <Image
+                source={require("../assets/arrow_right.png")}
+                style={{ tintColor: theme.gray }}
+              />
             </View>
           </TouchableOpacity>
 
@@ -258,18 +277,12 @@ export default function Settings({ navigation }: any) {
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View
               style={{
-                width: 50,
-                height: 1,
-                marginVertical: 5,
-                backgroundColor: theme.backgroundColor,
-              }}
-            />
-            <View
-              style={{
                 width: "100%",
-                height: 1,
+                height: 0.7,
+                marginLeft: 50,
                 marginVertical: 5,
-                backgroundColor: "#D8D8D8",
+                backgroundColor:
+                  theme.type == "default" ? "#D8D8D8" : "#5f5f5f",
               }}
             />
           </View>
@@ -287,7 +300,10 @@ export default function Settings({ navigation }: any) {
               <Text style={[styles.name, { color: theme.textDark }]}>
                 Privacy and Security
               </Text>
-              <Image source={require("../assets/arrow_right.png")} />
+              <Image
+                source={require("../assets/arrow_right.png")}
+                style={{ tintColor: theme.gray }}
+              />
             </View>
           </TouchableOpacity>
 
@@ -295,18 +311,12 @@ export default function Settings({ navigation }: any) {
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View
               style={{
-                width: 50,
-                height: 1,
-                marginVertical: 5,
-                backgroundColor: theme.backgroundColor,
-              }}
-            />
-            <View
-              style={{
                 width: "100%",
-                height: 1,
+                height: 0.7,
+                marginLeft: 50,
                 marginVertical: 5,
-                backgroundColor: "#D8D8D8",
+                backgroundColor:
+                  theme.type == "default" ? "#D8D8D8" : "#5f5f5f",
               }}
             />
           </View>
@@ -324,7 +334,10 @@ export default function Settings({ navigation }: any) {
               <Text style={[styles.name, { color: theme.textDark }]}>
                 Data and Storage
               </Text>
-              <Image source={require("../assets/arrow_right.png")} />
+              <Image
+                source={require("../assets/arrow_right.png")}
+                style={{ tintColor: theme.gray }}
+              />
             </View>
           </TouchableOpacity>
 
@@ -333,18 +346,12 @@ export default function Settings({ navigation }: any) {
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View
               style={{
-                width: 50,
-                height: 1,
-                marginVertical: 5,
-                backgroundColor: theme.backgroundColor,
-              }}
-            />
-            <View
-              style={{
                 width: "100%",
-                height: 1,
+                height: 0.7,
+                marginLeft: 50,
                 marginVertical: 5,
-                backgroundColor: "#D8D8D8",
+                backgroundColor:
+                  theme.type == "default" ? "#D8D8D8" : "#5f5f5f",
               }}
             />
           </View>
@@ -362,7 +369,10 @@ export default function Settings({ navigation }: any) {
               <Text style={[styles.name, { color: theme.textDark }]}>
                 Appearance
               </Text>
-              <Image source={require("../assets/arrow_right.png")} />
+              <Image
+                source={require("../assets/arrow_right.png")}
+                style={{ tintColor: theme.gray }}
+              />
             </View>
           </TouchableOpacity>
         </View>

@@ -10,6 +10,10 @@ interface Props {
   rightIcon?: any;
   navigation?: any;
   background?: any;
+  isActive?: string;
+  isCalls?: boolean;
+  rightAction?: () => void;
+  setIsActive?: (section: string) => void;
   action?: () => void;
 }
 export default function Header(props: Props) {
@@ -43,10 +47,65 @@ export default function Header(props: Props) {
         </Text>
       </TouchableOpacity>
 
-      <Text style={[styles.header_text, { color: theme.textDark }]}>
-        {props.midText}
-      </Text>
-      <TouchableOpacity>
+      {props.isCalls ? (
+        <View
+          style={{
+            backgroundColor:
+              theme.type == "dark" ? theme.backgroundColor : "#e6e6e6",
+            padding: 2,
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: 10,
+            flexDirection: "row",
+          }}
+        >
+          <TouchableOpacity
+            onPress={() => props.setIsActive && props.setIsActive("all")}
+            style={{
+              width: 70,
+              height: 27,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor:
+                props.isActive == "all"
+                  ? theme.type == "dark"
+                    ? theme.headerColor
+                    : theme.backgroundColor
+                  : theme.type == "dark"
+                  ? theme.backgroundColor
+                  : "#e6e6e6",
+              borderRadius: 8,
+            }}
+          >
+            <Text style={{ color: theme.textDark, fontSize: 12 }}>All</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => props.setIsActive && props.setIsActive("missed")}
+            style={{
+              width: 70,
+              height: 27,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor:
+                props.isActive == "missed"
+                  ? theme.type == "dark"
+                    ? theme.headerColor
+                    : theme.backgroundColor
+                  : theme.type == "dark"
+                  ? theme.backgroundColor
+                  : "#e6e6e6",
+              borderRadius: 8,
+            }}
+          >
+            <Text style={{ color: theme.textDark, fontSize: 12 }}>Missed</Text>
+          </TouchableOpacity>
+        </View>
+      ) : (
+        <Text style={[styles.header_text, { color: theme.textDark }]}>
+          {props.midText}
+        </Text>
+      )}
+      <TouchableOpacity onPress={props.rightAction && props.rightAction}>
         {props.rightIcon && (
           <Image source={props.rightIcon} style={styles.icon} />
         )}

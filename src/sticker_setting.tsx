@@ -29,7 +29,7 @@ export default function StickerSettings({ navigation }: any) {
         leftIcon={true}
         leftText={"Back"}
         midText="Stickers"
-        rightText="Done"
+        rightText="Edit"
         background={true}
         action={() => navigation.goBack()}
       />
@@ -43,7 +43,7 @@ export default function StickerSettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 30,
             },
           ]}
@@ -57,7 +57,10 @@ export default function StickerSettings({ navigation }: any) {
                 <Text style={{ color: theme.gray, marginRight: 10 }}>
                   All Sets
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -75,7 +78,8 @@ export default function StickerSettings({ navigation }: any) {
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <View
                   style={{
-                    backgroundColor: theme.unreadBlue,
+                    backgroundColor:
+                      theme.type == "default" ? theme.unreadBlue : "#fff",
                     marginRight: 10,
                     width: 28,
                     alignItems: "center",
@@ -87,7 +91,10 @@ export default function StickerSettings({ navigation }: any) {
                     15
                   </Text>
                 </View>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -104,7 +111,10 @@ export default function StickerSettings({ navigation }: any) {
               </Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Text style={{ color: theme.gray, marginRight: 10 }}>46</Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -123,7 +133,10 @@ export default function StickerSettings({ navigation }: any) {
                 <Text
                   style={{ color: theme.gray, marginRight: 10, fontSize: 16 }}
                 ></Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -175,7 +188,7 @@ export default function StickerSettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 5,
             },
           ]}

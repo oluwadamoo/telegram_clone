@@ -46,7 +46,7 @@ export default function NotificationSettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 10,
             },
           ]}
@@ -88,7 +88,8 @@ export default function NotificationSettings({ navigation }: any) {
                 <Text style={{ color: theme.gray, marginRight: 10 }}>
                   All Sets
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }} />
               </View>
             </View>
           </View>
@@ -118,7 +119,8 @@ export default function NotificationSettings({ navigation }: any) {
                     15
                   </Text>
                 </View>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }} />
               </View>
             </View>
           </View>
@@ -135,7 +137,8 @@ export default function NotificationSettings({ navigation }: any) {
               </Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Text style={{ color: theme.gray, marginRight: 10 }}>46</Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }} />
               </View>
             </View>
           </View>
@@ -154,7 +157,8 @@ export default function NotificationSettings({ navigation }: any) {
                 <Text
                   style={{ color: theme.gray, marginRight: 10, fontSize: 16 }}
                 ></Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }} />
               </View>
             </View>
           </View>
@@ -208,7 +212,7 @@ export default function NotificationSettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 10,
             },
           ]}
@@ -283,7 +287,10 @@ export default function NotificationSettings({ navigation }: any) {
               </Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Text style={{ color: theme.gray, marginRight: 10 }}>None</Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -302,7 +309,10 @@ export default function NotificationSettings({ navigation }: any) {
                 <Text style={{ color: theme.gray, marginRight: 10 }}>
                   66 chats
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -324,7 +334,7 @@ export default function NotificationSettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 10,
             },
           ]}
@@ -399,7 +409,10 @@ export default function NotificationSettings({ navigation }: any) {
               </Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Text style={{ color: theme.gray, marginRight: 10 }}>None</Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -416,7 +429,10 @@ export default function NotificationSettings({ navigation }: any) {
               </Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Text style={{ color: theme.gray, marginRight: 10 }}>Add</Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>

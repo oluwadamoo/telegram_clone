@@ -32,7 +32,7 @@ export default function SingleChat({ navigation, route }: any) {
   return (
     <View style={styles.container}>
       {/* header */}
-      <View style={[styles.header, { backgroundColor: theme.backgroundColor }]}>
+      <View style={[styles.header, { backgroundColor: theme.headerColor }]}>
         <TouchableOpacity
           style={styles.header_left}
           activeOpacity={0.6}
@@ -106,7 +106,7 @@ export default function SingleChat({ navigation, route }: any) {
                   </View>
                 </View>
               ) : (
-                <Text>{chat.message}</Text>
+                <Text style={{ color: theme.textDark }}>{chat.message}</Text>
               )}
 
               <View
@@ -144,7 +144,13 @@ export default function SingleChat({ navigation, route }: any) {
       </ImageBackground>
 
       <View
-        style={[styles.textboxcont, { backgroundColor: theme.chatTextbox }]}
+        style={[
+          styles.textboxcont,
+          {
+            backgroundColor:
+              theme.type == "default" ? theme.chatTextbox : theme.headerColor,
+          },
+        ]}
       >
         <TouchableOpacity activeOpacity={0.6}>
           <Image source={require("../assets/attach_icon.png")} />

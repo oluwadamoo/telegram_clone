@@ -18,9 +18,10 @@ const Stack = createStackNavigator();
 export default function Root() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Register" component={Register} />
+
       <Stack.Screen name="Tab" component={Bottom} />
 
-      <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Single Chat" component={SingleChat} />
       <Stack.Screen name="User Info" component={UserInfo} />
       <Stack.Screen name="Edit Profile" component={EditProfile} />

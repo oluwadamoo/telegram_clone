@@ -28,7 +28,7 @@ export default function PrivacySettings({ navigation }: any) {
       <Header
         leftIcon={true}
         leftText={"Back"}
-        midText="Notifications"
+        midText="Privacy and Security"
         background={true}
         action={() => navigation.goBack()}
       />
@@ -42,7 +42,7 @@ export default function PrivacySettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 40,
             },
           ]}
@@ -62,7 +62,10 @@ export default function PrivacySettings({ navigation }: any) {
               </Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Text style={{ color: theme.gray, marginRight: 10 }}>9</Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </TouchableOpacity>
@@ -71,18 +74,12 @@ export default function PrivacySettings({ navigation }: any) {
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View
               style={{
-                width: 50,
-                height: 1,
-                marginVertical: 5,
-                backgroundColor: theme.backgroundColor,
-              }}
-            />
-            <View
-              style={{
                 width: "100%",
-                height: 1,
+                height: 0.7,
+                marginLeft: 50,
                 marginVertical: 5,
-                backgroundColor: "#D8D8D8",
+                backgroundColor:
+                  theme.type == "default" ? "#D8D8D8" : "#5f5f5f",
               }}
             />
           </View>
@@ -102,7 +99,10 @@ export default function PrivacySettings({ navigation }: any) {
               </Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Text style={{ color: theme.gray, marginRight: 10 }}>2</Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </TouchableOpacity>
@@ -111,18 +111,12 @@ export default function PrivacySettings({ navigation }: any) {
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View
               style={{
-                width: 50,
-                height: 1,
-                marginVertical: 5,
-                backgroundColor: theme.backgroundColor,
-              }}
-            />
-            <View
-              style={{
                 width: "100%",
-                height: 1,
+                height: 0.7,
+                marginLeft: 50,
                 marginVertical: 5,
-                backgroundColor: "#D8D8D8",
+                backgroundColor:
+                  theme.type == "default" ? "#D8D8D8" : "#5f5f5f",
               }}
             />
           </View>
@@ -142,7 +136,10 @@ export default function PrivacySettings({ navigation }: any) {
               </Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Text style={{ color: theme.gray, marginRight: 10 }}>Off</Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </TouchableOpacity>
@@ -152,18 +149,12 @@ export default function PrivacySettings({ navigation }: any) {
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View
               style={{
-                width: 50,
-                height: 1,
-                marginVertical: 5,
-                backgroundColor: theme.backgroundColor,
-              }}
-            />
-            <View
-              style={{
                 width: "100%",
-                height: 1,
+                height: 0.7,
+                marginLeft: 50,
                 marginVertical: 5,
-                backgroundColor: "#D8D8D8",
+                backgroundColor:
+                  theme.type == "default" ? "#D8D8D8" : "#5f5f5f",
               }}
             />
           </View>
@@ -183,7 +174,10 @@ export default function PrivacySettings({ navigation }: any) {
               </Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Text style={{ color: theme.gray, marginRight: 10 }}>On</Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </TouchableOpacity>
@@ -201,7 +195,7 @@ export default function PrivacySettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 10,
             },
           ]}
@@ -220,7 +214,10 @@ export default function PrivacySettings({ navigation }: any) {
                 <Text style={{ color: theme.gray, marginRight: 10 }}>
                   My Contacts
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -239,7 +236,10 @@ export default function PrivacySettings({ navigation }: any) {
                 <Text style={{ color: theme.gray, marginRight: 10 }}>
                   Nobody (+14)
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -258,7 +258,10 @@ export default function PrivacySettings({ navigation }: any) {
                 <Text style={{ color: theme.gray, marginRight: 10 }}>
                   Everybody
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -277,7 +280,10 @@ export default function PrivacySettings({ navigation }: any) {
                 <Text style={{ color: theme.gray, marginRight: 10 }}>
                   Nobody (+7)
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -296,7 +302,10 @@ export default function PrivacySettings({ navigation }: any) {
                 <Text style={{ color: theme.gray, marginRight: 10 }}>
                   Everybody
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -315,7 +324,10 @@ export default function PrivacySettings({ navigation }: any) {
                 <Text style={{ color: theme.gray, marginRight: 10 }}>
                   Everybody
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -339,7 +351,7 @@ export default function PrivacySettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 10,
             },
           ]}
@@ -358,7 +370,10 @@ export default function PrivacySettings({ navigation }: any) {
                 <Text style={{ color: theme.gray, marginRight: 10 }}>
                   6 months
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>

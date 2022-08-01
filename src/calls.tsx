@@ -6,7 +6,7 @@ import {
   Image,
   StyleSheet,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { calls } from "./data/calls";
 import Header from "./components/header";
 import { useSelector } from "react-redux";
@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 export default function Calls() {
   const theme = useSelector((state: any) => state.theme);
 
+  const [isActive, setIsActive] = useState("all");
   interface CallProps {
     name: string;
     type: string;
@@ -67,20 +68,29 @@ export default function Calls() {
     </TouchableOpacity>
   );
   return (
-    <View style={styles.container}>
+    <View
+      style={[styles.container, { backgroundColor: theme.backgroundColor }]}
+    >
       <Header
         background={true}
         leftText={"Edit"}
         midText={"All"}
+        isCalls={true}
+        isActive={isActive}
+        setIsActive={setIsActive}
         rightIcon={
           theme.type == "default"
             ? require("../assets/add_call_icon.png")
-            : require("../assets/add_call_icon.png")
+            : require("../assets/add_call_icon_dark.png")
         }
       />
 
       <FlatList
-        data={calls}
+        data={
+          isActive == "all"
+            ? calls
+            : calls.filter((call) => call.type.toLowerCase() == "missed")
+        }
         renderItem={(item) => (
           <CallSection
             name={item.item.name}

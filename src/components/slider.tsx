@@ -1,6 +1,6 @@
 import React from "react";
 import { Slider } from "@miblanchard/react-native-slider";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Dimensions } from "react-native";
 import { useSelector } from "react-redux";
 
 const TextSlider = () => {
@@ -13,8 +13,8 @@ const TextSlider = () => {
         maximumValue={12}
         trackMarks={[0, 3, 6, 9, 12]}
         trackClickable={true}
-        thumbTintColor={theme.backgroundColor}
-        thumbStyle={{ elevation: 2 }}
+        thumbTintColor={"#fff"}
+        thumbStyle={{ elevation: 2, width: 30, height: 30, borderRadius: 100 }}
         minimumTrackTintColor={theme.textBlue}
         trackStyle={{ backgroundColor: theme.gray }}
         value={value}
@@ -23,16 +23,6 @@ const TextSlider = () => {
     </View>
   );
 };
-// class TextSlider extends React.Component {
-//   state = {
-//     value: 0.2,
-//   };
-
-//   render() {
-//     const theme = useSelector((state: any) => state.theme);
-
-//   }
-// }
 
 const styles = StyleSheet.create({
   container: {

@@ -13,6 +13,7 @@ import {
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { ScrollView } from "react-native-gesture-handler";
+import Header from "./components/header";
 export default function Register({ navigation }: any) {
   const theme = useSelector((state: any) => state.theme);
   const [isEnabled, setIsEnabled] = useState(false);
@@ -30,7 +31,7 @@ export default function Register({ navigation }: any) {
         <TouchableOpacity>
           <Text style={[styles.cancel, { color: theme.textBlue }]}>Cancel</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.push("Tab")}>
           <Text style={[styles.next, { color: theme.textBlue }]}>Next</Text>
         </TouchableOpacity>
       </View>
@@ -47,9 +48,9 @@ export default function Register({ navigation }: any) {
       </View>
 
       <View style={styles.textbox_cont}>
-        <Text style={styles.country}>NGN</Text>
+        <Text style={[styles.country, { color: theme.textDark }]}>NGN</Text>
         <View style={styles.textbox_wrapper}>
-          <Text style={styles.c_code}>+234</Text>
+          <Text style={[styles.c_code, { color: theme.textDark }]}>+234</Text>
           <TextInput
             placeholderTextColor={theme.chatTextboxPlaceholder}
             placeholder="Your phone number"

@@ -13,21 +13,23 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import Header from "./components/header";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { stickers } from "./data/stickers";
 import { chatoverview } from "./data/chat_overview";
 import { Slider } from "@miblanchard/react-native-slider";
 import { TextSlider } from "./components/slider";
+import { darkMode, lightMode } from "./redux/colorReducer";
 
 export default function AppearanceSettings({ navigation }: any) {
   const [isEnabled, setIsEnabled] = useState(true);
   const [fontSize, setFontSize] = useState(0.2);
+
+  const dispatch = useDispatch();
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
   const theme = useSelector((state: any) => state.theme);
   const chats = chatoverview[1].chats?.slice(0, 2);
 
-  console.log(chats);
   return (
     <View
       style={[styles.container, { backgroundColor: theme.settingBackground }]}
@@ -37,7 +39,11 @@ export default function AppearanceSettings({ navigation }: any) {
         leftIcon={true}
         leftText={"Back"}
         midText="Appearance"
-        rightIcon={require("../assets/save_icon.png")}
+        rightIcon={
+          theme.type == "default"
+            ? require("../assets/save_icon.png")
+            : require("../assets/save_icon_dark.png")
+        }
         background={true}
         action={() => navigation.goBack()}
       />
@@ -51,7 +57,7 @@ export default function AppearanceSettings({ navigation }: any) {
             marginBottom: 10,
           }}
         >
-          <Text style={{ color: theme.gray }}>COLOR THEME</Text>
+          <Text style={{ color: theme.gray, fontSize: 13 }}>COLOR THEME</Text>
         </View>
         <ImageBackground
           style={{
@@ -77,7 +83,7 @@ export default function AppearanceSettings({ navigation }: any) {
                 ]}
                 key={index}
               >
-                <Text>{chat.message}</Text>
+                <Text style={{ color: theme.textDark }}>{chat.message}</Text>
 
                 <View
                   style={{
@@ -90,7 +96,9 @@ export default function AppearanceSettings({ navigation }: any) {
                     style={{
                       color:
                         chat.user == "me"
-                          ? theme.readColor
+                          ? theme.type == "default"
+                            ? theme.readColor
+                            : theme.friendTimeGray
                           : theme.friendTimeGray,
                       fontSize: 10,
                     }}
@@ -102,7 +110,7 @@ export default function AppearanceSettings({ navigation }: any) {
                       source={
                         theme.type == "default"
                           ? require("../assets/read_icon_green.png")
-                          : require("../assets/read_icon_green_dark.png")
+                          : require("../assets/read_icon_dark.png")
                       }
                       style={{ marginLeft: 3 }}
                     />
@@ -127,6 +135,7 @@ export default function AppearanceSettings({ navigation }: any) {
               <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                   <TouchableOpacity
+                    onPress={() => dispatch(lightMode())}
                     activeOpacity={0.7}
                     style={{
                       alignItems: "center",
@@ -157,32 +166,7 @@ export default function AppearanceSettings({ navigation }: any) {
                     </Text>
                   </TouchableOpacity>
                   <TouchableOpacity
-                    activeOpacity={0.7}
-                    style={{
-                      alignItems: "center",
-                      justifyContent: "center",
-                      marginRight: 20,
-                    }}
-                  >
-                    <View
-                      style={{
-                        borderRadius: 18,
-                        borderColor: theme.textBlue,
-                      }}
-                    >
-                      <Image source={require("../assets/light_theme.png")} />
-                    </View>
-                    <Text
-                      style={{
-                        marginTop: 10,
-                        fontSize: 13,
-                        color: theme.textDark,
-                      }}
-                    >
-                      Day
-                    </Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
+                    onPress={() => dispatch(darkMode())}
                     activeOpacity={0.7}
                     style={{
                       alignItems: "center",
@@ -224,7 +208,7 @@ export default function AppearanceSettings({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 40,
             },
           ]}
@@ -250,7 +234,10 @@ export default function AppearanceSettings({ navigation }: any) {
                     borderRadius: 15,
                   }}
                 ></View>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -269,14 +256,17 @@ export default function AppearanceSettings({ navigation }: any) {
                 <Text style={{ color: theme.gray, marginRight: 10 }}>
                   Disabled
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
         </View>
 
         <View style={{ paddingHorizontal: 15, paddingTop: 5, marginTop: 30 }}>
-          <Text style={{ color: theme.gray }}>TEXT SIZE</Text>
+          <Text style={{ color: theme.gray, fontSize: 13 }}>TEXT SIZE</Text>
         </View>
 
         {/* Chat settings */}
@@ -284,7 +274,7 @@ export default function AppearanceSettings({ navigation }: any) {
           style={[
             styles.user_acct,
             {
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 5,
             },
           ]}
@@ -307,7 +297,7 @@ export default function AppearanceSettings({ navigation }: any) {
         </View>
 
         <View style={{ paddingHorizontal: 15, paddingTop: 5, marginTop: 30 }}>
-          <Text style={{ color: theme.gray }}>APP ICON</Text>
+          <Text style={{ color: theme.gray, fontSize: 13 }}>APP ICON</Text>
         </View>
 
         {/* Chat settings */}
@@ -315,7 +305,7 @@ export default function AppearanceSettings({ navigation }: any) {
           style={[
             styles.user_acct,
             {
-              backgroundColor: theme.backgroundColor,
+              backgroundColor: theme.settingSectionBackground,
               marginTop: 5,
             },
           ]}
@@ -507,7 +497,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
 
     borderTopRightRadius: 10,
-    elevation: 1,
+    elevation: 2,
 
     maxWidth: Dimensions.get("screen").width * 0.6,
   },

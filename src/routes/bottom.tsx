@@ -1,6 +1,5 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Login from "../login";
 import { Image, View } from "react-native";
 import { useSelector } from "react-redux";
 import Contacts from "../contacts";
@@ -23,8 +22,8 @@ export default function Bottom() {
           backgroundColor:
             props.focused == true ? theme.textBlue : theme.headerColor,
           borderRadius: 1000,
-          height: 30,
-          width: 30,
+          height: 36,
+          width: 36,
           alignItems: "center",
           justifyContent: "center",
         },
@@ -35,8 +34,8 @@ export default function Bottom() {
           {
             backgroundColor: theme.backgroundColor,
             borderRadius: 1000,
-            height: 28,
-            width: 28,
+            height: 33,
+            width: 33,
             alignItems: "center",
             justifyContent: "center",
           },
@@ -46,7 +45,7 @@ export default function Bottom() {
           source={{
             uri: "https://images.unsplash.com/photo-1564598328706-70cecb6ad257?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
           }}
-          style={{ width: 25, height: 25, borderRadius: 100 }}
+          style={{ width: 30, height: 30, borderRadius: 100 }}
         />
       </View>
     </View>
@@ -55,8 +54,13 @@ export default function Bottom() {
     <Tab.Navigator
       initialRouteName="Chats"
       screenOptions={{
+        tabBarActiveTintColor:
+          theme.type == "default" ? theme.textBlue : "#fff",
         headerShown: false,
         tabBarStyle: {
+          borderWidth: 0,
+          elevation: 0,
+          shadowOpacity: 0,
           backgroundColor: theme.headerColor,
           alignItems: "center",
           paddingBottom: 8,
@@ -117,7 +121,7 @@ export default function Bottom() {
                     : require("../../assets/chat_icon_active_dark.png")
                   : theme.type == "default"
                   ? require("../../assets/chat_icon.png")
-                  : require("../../assets/chat_icon_active.png")
+                  : require("../../assets/chat_icon_dark.png")
               }
             />
           ),

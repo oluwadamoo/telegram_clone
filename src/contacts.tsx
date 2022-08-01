@@ -25,7 +25,7 @@ export default function Contacts() {
         <Text
           style={{
             fontSize: 12,
-            color: props.status == "online" ? theme.textBlue : theme.gray,
+            color: props.status == "online" ? "#007AFF" : theme.gray,
           }}
         >
           {props.status}
@@ -39,7 +39,11 @@ export default function Contacts() {
     >
       <Header
         midText="Contacts"
-        rightIcon={require("../assets/add_icon.png")}
+        rightIcon={
+          theme.type == "default"
+            ? require("../assets/add_icon.png")
+            : require("../assets/add_icon_dark.png")
+        }
         background={true}
       />
       <View style={styles.body}>
@@ -97,18 +101,12 @@ export default function Contacts() {
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <View
                 style={{
-                  width: 50,
-                  height: 1,
-                  marginVertical: 5,
-                  backgroundColor: theme.backgroundColor,
-                }}
-              />
-              <View
-                style={{
                   width: "100%",
-                  height: 1,
+                  height: 0.7,
+                  marginLeft: 50,
                   marginVertical: 5,
-                  backgroundColor: "#D8D8D8",
+                  backgroundColor:
+                    theme.type == "default" ? "#D8D8D8" : "#5f5f5f",
                 }}
               />
             </View>

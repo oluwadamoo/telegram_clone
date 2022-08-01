@@ -30,7 +30,15 @@ export default function EditProfile({ navigation }: any) {
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <View
-          style={[styles.user_acct, { backgroundColor: theme.backgroundColor }]}
+          style={[
+            styles.user_acct,
+            {
+              backgroundColor:
+                theme.type == "default"
+                  ? theme.backgroundColor
+                  : theme.headerColor,
+            },
+          ]}
         >
           <View
             style={{
@@ -85,7 +93,10 @@ export default function EditProfile({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor:
+                theme.type == "default"
+                  ? theme.backgroundColor
+                  : theme.headerColor,
               marginTop: 30,
             },
           ]}
@@ -113,7 +124,10 @@ export default function EditProfile({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor:
+                theme.type == "default"
+                  ? theme.backgroundColor
+                  : theme.headerColor,
               marginTop: 30,
             },
           ]}
@@ -127,7 +141,10 @@ export default function EditProfile({ navigation }: any) {
                 <Text style={{ color: theme.gray, marginRight: 10 }}>
                   +234 816 369 6751
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -148,7 +165,10 @@ export default function EditProfile({ navigation }: any) {
                 >
                   @jacob_designer
                 </Text>
-                <Image source={require("../assets/arrow_right.png")} />
+                <Image
+                  source={require("../assets/arrow_right.png")}
+                  style={{ tintColor: theme.gray }}
+                />
               </View>
             </View>
           </View>
@@ -162,7 +182,10 @@ export default function EditProfile({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor:
+                theme.type == "default"
+                  ? theme.backgroundColor
+                  : theme.headerColor,
               justifyContent: "center",
 
               marginTop: 40,
@@ -197,7 +220,10 @@ export default function EditProfile({ navigation }: any) {
             {
               alignItems: "flex-start",
               flexDirection: "column",
-              backgroundColor: theme.backgroundColor,
+              backgroundColor:
+                theme.type == "default"
+                  ? theme.backgroundColor
+                  : theme.headerColor,
               justifyContent: "center",
 
               marginTop: 40,
